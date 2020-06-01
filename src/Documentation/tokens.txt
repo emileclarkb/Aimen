@@ -1,0 +1,32 @@
+=   : eq
++   : add
+-   : sub
+*   : mul
+/   : div
++=  : addeq
+-=  : subeq
+*=  : muleq
+/=  : diveq
+**  : sq
+++  : inc
+--  : dec
+!   : not
+!=  : noteq
+
+(   : lbrac
+)   : rbrac
+[   : lsq
+]   : rsq
+{   : lcurl
+}   : rcurl
+
+||  : or
+&&  : and
+
+//  : scom
+/*  : dcoms
+*/  : dcome
+
+;   : semi
+:   : col
+,   : comm

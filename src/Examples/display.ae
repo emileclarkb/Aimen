@@ -1,0 +1,32 @@
+using program
+import library
+import library.py <*>
+
+
+list = []
+
+for (pos, i through enum(list)):
+    // comment
+    log(list[pos])
+    pos++
+    log(list[i])
+
+    /*
+    multiline
+    comment
+    */
+
+
+ref a():
+    log("Hello World!")
+a()
+
+
+obj b(program.object):
+    self ref runtime():
+        self.var = "string"
+        self.i = 0
+    self ref loop(max=0):
+        while (self.i < 100):
+            self.i++
+        log("Finished!")
