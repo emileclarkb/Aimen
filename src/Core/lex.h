@@ -1,7 +1,7 @@
 #ifndef LEX_H
 #define LEX_H
 
-#include "Primitives/token.h"
+#include "Primitives/Base/token.h"
 #include <string>
 #include <vector>
 

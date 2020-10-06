@@ -1,5 +1,5 @@
 #include "lex.h"
-#include "Primitives/token.h"
+#include "Primitives/Base/token.h"
 #include <fstream>
 #include <vector>
 #include <string>

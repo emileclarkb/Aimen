@@ -1,5 +1,5 @@
 using prague
-include prague.core
+include prague.core {engine}
 
 using math4
 instance math4.[Vector,Matrix,Quaternion]
@@ -7,4 +7,16 @@ instance math4.[Vector,Matrix,Quaternion]
 using Sonata
 using Rendering
 
-ref
+
+obj prague {
+    ref engine.Awake(engine.err status) {
+        // error occurred on boot
+        if status {
+            engine.console.err(status);
+        }
+    }
+
+    ref engine.Start() {
+        engine.sampeScene("ParticleRender");
+    }
+}

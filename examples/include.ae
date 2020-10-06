@@ -1,0 +1,25 @@
+/*
+// concept from Sygmei on 5/10/2020 8:48am
+// #general-engine-discussion [Indie Game Engine Devs (Harold Serrano)]
+
+include prague.*
+include prague.core {engine}
+
+include math4.*
+include math4 {Vector,Matrix,Quaternion}
+
+include Sonata.*
+include Rendering.*
+*/
+
+// Aimen Implementation
+
+include Prague.*
+include Prague.core as engine
+
+include Math4
+include Math4 {Vector,Matrix,Quaternion}
+
+include Sonata
+
+include Rendering

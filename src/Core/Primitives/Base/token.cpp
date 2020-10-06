@@ -2,6 +2,8 @@
 #include <ctype.h>
 #include <stdexcept>
 #include <iostream>
+#include <string>
+#include <sstream>
 
 // determine token type
 // integer.float.double
@@ -127,3 +129,65 @@ void vecBrief(std::vector<Token> &tokens) {
     // blank line
     std::cout << std::endl;
 }
+
+
+// primitive token arithmetic
+Token tokAdd(Token &a, Token &b) {
+    Token tkn;
+    std::stringstream ss;
+
+    // integer, integer addition
+    if (a.type == TOK_INTEGER && b.type == TOK_INTEGER) {
+        tkn.type = TOK_INTEGER;
+        ss << (std::stoi(a.value) + std::stoi(b.value));
+        ss >> tkn.value;
+    }
+    // integer, float addition
+    else if (a.type == TOK_INTEGER && b.type == TOK_FLOAT) {
+        tkn.type = TOK_FLOAT;
+        ss << (std::stoi(a.value) + std::stof(b.value));
+        ss >> tkn.value;
+    }
+    else if (a.type == TOK_FLOAT && b.type == TOK_INTEGER) {
+        tkn.type = TOK_FLOAT;
+        ss << (std::stoi(a.value) + std::stof(b.value));
+        ss >> tkn.value;
+    }
+
+
+    return tkn;
+}
+
+/*
+Token tokSub(Token&, Token&);
+Token tokMul(Token&, Token&);
+Token tokDiv(Token&, Token&);
+Token tokMod(Token&, Token&);
+Token tokEq(Token&, Token&);
+
+
+
+
+Capable of Arithmetic or not:
+
+integer       /
+float         /
+double        /
+string        /
+char          /
+bool          /
+operator      X
+variable      X
+symbol        X
+
+
+Primitive Arithmetic I'll Implement
+Legend:
+    input1.input2 | return type
+
+int.int       | int
+int.float     | float
+int.double    | double
+str.str       | str
+str.char      | str
+*/

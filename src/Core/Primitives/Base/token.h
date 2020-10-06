@@ -38,4 +38,13 @@ std::string tokMap(tokType&);
 void vecBrief(std::vector<Token>&);
 
 
+// primitive token arithmetic
+Token tokAdd(Token&, Token&);
+Token tokSub(Token&, Token&);
+Token tokMul(Token&, Token&);
+Token tokDiv(Token&, Token&);
+Token tokMod(Token&, Token&);
+Token tokEq(Token&, Token&);
+
+
 #endif

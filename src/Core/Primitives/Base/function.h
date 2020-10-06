@@ -11,7 +11,6 @@ struct Function {
     std::string name;
 
     // return type
-    // TEMP: tokType
     tokType returnType;
 
     // multiple sets of parameters and vectors to support overloading

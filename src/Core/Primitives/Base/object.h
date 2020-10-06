@@ -21,7 +21,7 @@ struct Object {
     Function constructor;
     Function deconstructor;
 
-    // functions attached
+    // object properties
     std::vector<Variable> Variables;
     std::vector<Function> Functions;
 };
