@@ -31,7 +31,7 @@ void Lexer::lex(std::string file) {
             }
 
             // whitespace encountered (not at the start of the line)
-            else if (c == ' ' || c == '\t' || c == '\n') {
+            if (c == ' ' || c == '\t' || c == '\n') {
                 // push token to vector
                 pushCurrent();
             }
@@ -53,23 +53,19 @@ void Lexer::lex(std::string file) {
 
                 // entered a new token
                 if (!constructing) {
-                    std::cout << c << std::endl;
                     constructing = 1;
 
                     // starting character is a character (var token)
                     if (ctype == TokenType::var) {
                         current.type = TokenType::var;
-                        current.value += c;
                     }
                     // starting character is a symbol (sym token)
                     else if (ctype == TokenType::sym) {
                         current.type = TokenType::sym;
-                        current.value += c;
                     }
                     // starting character is a number (num token)
                     else if (ctype == TokenType::num) {
                         current.type = TokenType::num;
-                        current.value += c;
                     }
                     else {
                         throw std::invalid_argument("Bro what else is it tho? [#1]");
@@ -83,16 +79,19 @@ void Lexer::lex(std::string file) {
                     if ((current.type != ctype) ||
                         ((current.type = TokenType::var) && (ctype != TokenType::num))) {
                         // push token to vector
-                        std::cout << '\"' << current.value << '\"' << std::endl;
                         pushCurrent();
                         // create new token
                         current.type = ctype;
-                        current.value = c;
                     }
                 }
+                current.value += c;
             }
         }
 
+        // final token was never pushed
+        if (constructing) {
+            pushCurrent();
+        }
         break;
     }
 }
