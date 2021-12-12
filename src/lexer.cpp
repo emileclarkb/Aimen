@@ -75,8 +75,10 @@ void Lexer::lex(std::string file) {
                     // if statement determines whether the token state has changed or
                     // the character that doesn't follow variable naming convention
                     // (possibly allows to remove the previous whitespace test)
-                    if ((current.type != ctype) ||
-                        ((current.type = TokenType::var) && (ctype != TokenType::num))) {
+                    if ((current.type != ctype) &&
+                        !((current.type == TokenType::var) &&
+                          (ctype == TokenType::num))) {
+                        std::cout << current.value << std::endl;
                         // push token to vector
                         pushCurrent();
                         // create new token
