@@ -5,3 +5,7 @@ old/
 
 # automatic C++/h file generating
 gen/
+
+
+# binaries
+*.exe
