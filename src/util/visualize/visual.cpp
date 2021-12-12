@@ -19,8 +19,6 @@ std::string tokenString(TokenType type) {
 
 // print a token vector
 void printVec(std::vector<Token>& vector) {
-    // start
-    std::cout << "# ";
     // iterate tokens
     for (Token t : vector) {
         std::cout << "(" << tokenString(t.type) << ": \""<< t.value << "\") ";
