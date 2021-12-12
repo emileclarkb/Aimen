@@ -1,3 +1,7 @@
 # Created by Emile Clark-Boman
 
+# old aimen implementation
 old/
+
+# automatic C++/h file generating
+gen/
