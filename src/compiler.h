@@ -13,9 +13,6 @@ class Compiler {
         // lexer instance
         Lexer lexer;
 
-        // very plain token tree
-        std::vector<std::vector<Token>> tree;
-
         // list of files to compile
         std::vector<std::string> files;
 };

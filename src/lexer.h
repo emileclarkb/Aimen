@@ -19,11 +19,15 @@ class Lexer {
         int isSym(char&);
         int isNum(char&);
 
-        std::vector<Token> tokens;
+        // very plain token tree
+        std::vector<std::vector<Token>> tree;
     private:
+        // token vector
+        std::vector<Token> tokens;
+
         // current token
         Token current;
-        // push current token to token list
+        // push current token to token vector
         void pushCurrent();
 
         // State Variables

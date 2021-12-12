@@ -14,7 +14,6 @@ void Lexer::lex(std::string file) {
     // iterate lines in file (avoid holding entire file in memory)
     std::string line;
     while (getline(f, line)) {
-        std::cout << line << std::endl;
         // iterate characters in line
         for (char& c : line) {
             // setup indentation level at the start of the line
@@ -92,7 +91,11 @@ void Lexer::lex(std::string file) {
         if (constructing) {
             pushCurrent();
         }
-        break;
+
+        // push token vector to tree
+        tree.push_back(tokens);
+        // clear token vector
+        tokens.clear();
     }
 }
 

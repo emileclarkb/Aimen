@@ -9,9 +9,7 @@ Compiler::Compiler(std::vector<std::string> fs) {
     for (std::string& f : files) {
         // tokenize file
         lexer.lex(f);
-        // add tokens to tree
-        tree.push_back(lexer.tokens);
-        // visualize token vector
-        printVec(lexer.tokens);
+        // visualize token tree
+        printTree(lexer.tree);
     }
 }
