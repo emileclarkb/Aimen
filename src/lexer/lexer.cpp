@@ -1,7 +1,6 @@
 #include "lexer.h"
 #include "token.h"
 #include "util/file/file.h"
-
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
@@ -71,19 +70,19 @@ void Lexer::lex(std::string file) {
                     }
                 }
                 // continue building an old token
-                else {
-                    // if statement determines whether the token state has changed or
-                    // the character that doesn't follow variable naming convention
-                    // (possibly allows to remove the previous whitespace test)
-                    if ((current.type != ctype) &&
-                        !((current.type == TokenType::var) &&
-                          (ctype == TokenType::num))) {
-                        std::cout << current.value << std::endl;
-                        // push token to vector
-                        pushCurrent();
-                        // create new token
-                        current.type = ctype;
-                    }
+
+                // statement determines whether the token state has changed or
+                // the character that doesn't follow variable naming convention
+                // (possibly allows to remove the previous whitespace test)
+                else if ((current.type != ctype) &&
+                        !((current.type == TokenType::var) && (ctype == TokenType::num))) {
+
+                    // push token to vector
+                    pushCurrent();
+                    // create new token
+                    current.type = ctype;
+                    // start constructing immediately
+                    constructing = 1;
                 }
                 current.value += c;
             }
