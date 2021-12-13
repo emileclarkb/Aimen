@@ -1,9 +1,7 @@
 #include "file.h"
-
 #include <iostream>
 #include <fstream>
 #include <dirent.h>
-
 #include <stdio.h>
 
 
